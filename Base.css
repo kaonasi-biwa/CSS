@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+
+  #sidebar-header{
+    border: none !important;
+  }
+  #main-window .titlebar-buttonbox{
+    opacity: 1 !important;
+  }
+  #tabs-newtab-button{
+    mix-blend-mode: difference;
+  }
+
+  /*画像を全体に持ってくる*/
+  body {
+/*    --lwt-additional-images:url(http://localhost/img.png);*/
+    background-image: var(--lwt-additional-images);
+    background-repeat: var(--lwt-background-tiling);
+    background-position: var(--lwt-background-alignment);
+    background-size: cover;
+  }
+
+  /*閉じるボタン消してた気がする*/
+  #TabsToolbar .tabbrowser-tab .tab-close-button {
+    display: none !important;
+  }
+
+  /*タブ台形にしたり*/
+  .tab-background {
+    /*clip-path: polygon(0% 100%, 5% 0%, 95% 0%, 100% 100%);*/
+    clip-path: polygon(5% 100%, 0% 0%, 100% 0%, 95% 100%);
+    margin-top: 0px !important;
+    max-width: 260px;
+    background: none;
+    border-radius: 0px !important;
+  }
+
+  /*タブを上にくっつける*/
+  .tab-stack {
+    margin-top: 0px !important;
+  }
+
+  /*3つのボタンを無理やり左上へ*/
+  .titlebar-buttonbox-container {
+    display: flex;
+    right: 0px;
+    height: 35px;
+    position: fixed;
+    top: 7px;
+    background-color: none;
+  }
+
+  /*メニューバーをなんとしてでも浮かせる*/
+  #toolbar-menubar {
+    position: fixed;
+    display: flex;
+    z-index: 100;
+    border-radius: 0px 0px 30px 30px;
+  }
+  #toolbar-menubar:hover {
+    background-color: var(--toolbar-bgcolor);
+  }
+
+  /*忘れた*/
+  tab {
+    margin-left: 0px !important;
+  }
+
+  /*背景を透過できるようにしてた気がする*/
+  #navigator-toolbox {
+    background: none !important;
+  }
+  browser{
+    border-radius: 30px;
+  }
+  tabpanels{
+    background: none !important;
+  }
+  #navigator-toolbox{
+    border: none !important;
+  }
+  #PersonalToolbar{
+    border-radius: 0px 0px 30px 0px;
+  }
+
+  /*サイドバーをキュッとしてる*/
+  #sidebar-box {
+    border-radius:30px;
+  }
+
+
+
+}
