@@ -1313,12 +1313,12 @@ menuitem[checked="true"]>.menu-iconic-left,
 :root[fxastatus="signedin"] #fxa-avatar-image {
   scale: 1.5 !important;
 }
-
+/*
 :root[privatebrowsingmode] #fxa-toolbar-menu-button::before {
   content: "Private" !important;
   display: -moz-box !important;
   font-size: 12px !important;
-}
+}*/
 
 :root[privatebrowsingmode] #fxa-toolbar-menu-button {
   background: var(--uc-private-browsing-indicator, var(--lwt-toolbarbutton-icon-fill-attention, var(--toolbarbutton-icon-fill-attention))) !important;
@@ -1907,7 +1907,7 @@ menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic, [checked="
 
 :root[privatebrowsingmode] #TabsToolbar {
   color: #808387 !important;
-  background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;
+  /*background-color: var(--lwt-accent-color-inactive, var(--lwt-accent-color)) !important;*/
 }
 
 /* vertically center buttons in tab bar */
