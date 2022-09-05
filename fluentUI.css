@@ -1388,8 +1388,8 @@ menuitem[checked="true"]>.menu-iconic-left,
   opacity: .42 !important;
 }
 
-#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):hover:not([disabled]),
-#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):-moz-any(:hover:active, [checked], [open]):not([disabled]),
+#navigator-toolbox :-moz-any( toolbarbutton.bookmark-item:not(.subviewbutton)):hover:not([disabled]),
+#navigator-toolbox :-moz-any( toolbarbutton.bookmark-item:not(.subviewbutton)):-moz-any(:hover:active, [checked], [open]):not([disabled]),
 /* no ::part workaround - may have side effects */
 #scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton):hover:not([disabled]),
 #scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton):hover:not([disabled]) {
@@ -1692,7 +1692,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 #TabsToolbar .toolbarbutton-1>.toolbarbutton-icon,
 #TabsToolbar .toolbarbutton-1>.toolbarbutton-badge-stack {
-  border-radius: var(--toolbarbutton-border-radius) !important;
+  border-radius: 99px !important;
   padding: var(--uc-toolbarbutton-inner-padding) !important;
 }
 
