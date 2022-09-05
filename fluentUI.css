@@ -514,7 +514,6 @@ body[lwt-sidebar-brighttext][style*="--lwt-sidebar-background-color: rgb(56, 56,
   margin-block: 0 !important;
   margin-inline: 0 !important;
 }
-/**/
 
 /* auto complete popup */
 #PopupAutoComplete>.autocomplete-richlistbox {
@@ -1388,8 +1387,8 @@ menuitem[checked="true"]>.menu-iconic-left,
   opacity: .42 !important;
 }
 
-#navigator-toolbox :-moz-any( toolbarbutton.bookmark-item:not(.subviewbutton)):hover:not([disabled]),
-#navigator-toolbox :-moz-any( toolbarbutton.bookmark-item:not(.subviewbutton)):-moz-any(:hover:active, [checked], [open]):not([disabled]),
+#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):hover:not([disabled]),
+#navigator-toolbox :-moz-any(.toolbarbutton-1, toolbarbutton.bookmark-item:not(.subviewbutton)):-moz-any(:hover:active, [checked], [open]):not([disabled]),
 /* no ::part workaround - may have side effects */
 #scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton):hover:not([disabled]),
 #scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton):hover:not([disabled]) {
@@ -1419,12 +1418,18 @@ menuitem[checked="true"]>.menu-iconic-left,
 }
 
 #navigator-toolbox>#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon,
+#navigator-toolbox .toolbarbutton-1> :-moz-any(.toolbarbutton-icon, .toolbarbutton-badge-stack:not(#PanelUI-menu-button > .toolbarbutton-badge-stack)),
+/* no ::part workaround - may have side effects */
+#scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon,
+#scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon {
+  background: 0 !important;
+}
+#navigator-toolbox>#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon,
 #navigator-toolbox .toolbarbutton-1> :-moz-any(.toolbarbutton-icon, .toolbarbutton-badge-stack),
 /* no ::part workaround - may have side effects */
 #scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon,
 #scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon {
   padding: 6px !important;
-/*  background: 0 !important;*/
   width: auto !important;
   height: auto !important;
 }
@@ -1692,7 +1697,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 #TabsToolbar .toolbarbutton-1>.toolbarbutton-icon,
 #TabsToolbar .toolbarbutton-1>.toolbarbutton-badge-stack {
-  border-radius: 99px !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
   padding: var(--uc-toolbarbutton-inner-padding) !important;
 }
 
