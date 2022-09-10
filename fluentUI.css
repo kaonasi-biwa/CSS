@@ -341,7 +341,7 @@ body[lwt-sidebar-brighttext][style*="--lwt-sidebar-background-color: rgb(56, 56,
 .widget-overflow-list .toolbarbutton-1:not(.toolbarbutton-combined)>.toolbarbutton-text,
 .subviewbutton:not(#appMenu-zoom-controls2 > .subviewbutton)>.toolbarbutton-icon+.toolbarbutton-text,
 #appMenu-fxa-label2>vbox {
-  padding-inline-start: var(--uc-arrowpanel-menuicon-margin-inline) !important;
+  padding-inline-start: 8px !important;
 }
 
 /* special case menuitems with no icons */
@@ -977,14 +977,6 @@ menuitem[checked="true"]>.menu-iconic-left,
   @media not (-moz-platform: windows-win7) {
     @media not (-moz-platform: windows-win8) {
       @media (-moz-windows-default-theme) {
-        :root[tabsintitlebar] #TabsToolbar .titlebar-button {
-          transform: translateY(-8px) !important;
-          transform: translateY(-10px) !important;
-        }
-
-        .titlebar-button {
-          padding: 10px 17px !important;
-        }
 
         .titlebar-buttonbox-container {
           margin-bottom: 0 !important;
@@ -1418,22 +1410,15 @@ menuitem[checked="true"]>.menu-iconic-left,
 }
 
 #navigator-toolbox>#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon,
-#navigator-toolbox .toolbarbutton-1> :-moz-any(.toolbarbutton-icon, .toolbarbutton-badge-stack:not(#PanelUI-menu-button > .toolbarbutton-badge-stack)),
-/* no ::part workaround - may have side effects */
-#scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon,
-#scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon {
-  background: 0 !important;
-}
-#navigator-toolbox>#PersonalToolbar .toolbarbutton-1>.toolbarbutton-icon,
 #navigator-toolbox .toolbarbutton-1> :-moz-any(.toolbarbutton-icon, .toolbarbutton-badge-stack),
 /* no ::part workaround - may have side effects */
 #scrollbutton-up[part="scrollbutton-up"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon,
 #scrollbutton-down[part="scrollbutton-down"]:not(.menupopup-scrollbutton)>.toolbarbutton-icon {
+  background: 0 !important;
   padding: 6px !important;
   width: auto !important;
   height: auto !important;
 }
-
 /* #endregion*/
 /* #region パーソナルバー*/
 /* EdgeFr-Fox by bmFtZQ - personalbar.css */
@@ -1819,15 +1804,18 @@ toolbarbutton[part="scrollbutton-down"] {
   padding-inline-end: 8px !important;
 }
 
-
-
-menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic, [checked="true"])) {
-  padding-inline-start: 12px !important;
+menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic)) {
   background-position: left 1em center;
   background-repeat: no-repeat;
   background-size: 16px;
   -moz-context-properties: fill;
   fill: currentColor;
+}
+menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic, [type="checkbox"])) {
+  padding-inline-start: calc(24px) !important;
+}
+menupopup> menuitem[type="checkbox"] {
+  padding-inline-start: 8px !important;
 }
 
 
@@ -1917,7 +1905,6 @@ menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic, [checked="
 }
 
 /* vertically center buttons in tab bar */
-#TabsToolbar toolbarbutton,
 #TabsToolbar .toolbar-items toolbarbutton.toolbarbutton-1,
 /* >= 72 */
 #TabsToolbar .tabbrowser-arrowscrollbox::part(scrollbutton-up),
@@ -1928,7 +1915,6 @@ menupopup> :is(menu:not(.menu-iconic), menuitem:not(.menuitem-iconic, [checked="
   margin-top: calc(var(--tab-shadow-max-size) + 3px) !important;
   margin-bottom: 1px !important;
 }
-
 #tabbrowser-tabs[overflow] .tabbrowser-tab[pinned] .tab-stack {
   margin-top: 8px !important;
   margin-bottom: 0 !important;
@@ -3171,13 +3157,18 @@ menuitem[data-l10n-id^="places-edit-"] {
 #pageAction-panel-bookmark,
 #panelMenuBookmarkThisPage {
   list-style-image: url(chrome://browser/skin/star-1x.svg) !important;
+}
+#star-button:not(#star-button[starred]),
+#context-bookmarkpage,
+#pageAction-panel-bookmark,
+#panelMenuBookmarkThisPage {
   fill-opacity: 0 !important;
 }
 
-/*#star-button[starred],
+#star-button[starred],
 #tracking-protection-icon-box[active] {
-  fill: var(--toolbarbutton-icon-fill-attention) !important;
-}*/
+  fill-opacity: 1 !important;
+}
 
 #bookmarks-menu-button,
 #appMenu-library-bookmarks-button,
